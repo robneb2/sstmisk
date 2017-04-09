@@ -3,12 +3,21 @@ SST MISK Team project
 Roadmap projektu:
 https://trello.com/b/qxZZKyiM/team-project-sst-misk-roadmap
 
-Git
+Git (first config)
+
 git config --global user.name "Your Name"
 
 git config --global user.email "you@example.com"
 
+Git (download repository)
+
 git clone https://github.com/user203/sstmisk.git
+
+Git (push to repository)
+
+git add .
+
+git pull
 
 git commit -m "commit name"
 
