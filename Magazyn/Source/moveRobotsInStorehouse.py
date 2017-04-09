@@ -1,9 +1,10 @@
 from robotInStorehouse import RobotInStorehouse
 from general import Robots
+from positions import robotNames
 
 class MoveRobotsInStorehouse:    
     def __init__(self):
-        self.robots = [ RobotInStorehouse("Pioneer_p3dx") for i in range(len(Robots))]
+        self.robots = [ RobotInStorehouse(robotNames[i]) for i in range(len(Robots))]
     
     def getPalette(self, robotName, paletteId):
 	pass

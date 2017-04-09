@@ -75,9 +75,11 @@ class Path:
     startPosition = Point()
     endPosition = Point()
     
-    def __init__(self, startPosition, endPosition):
+    def __init__(self, startPosition, endPosition, nextPath1Id, nextPath2Id=0):
 	self.startPosition = startPosition
 	self.endPosition = endPosition
+	self.nextPath1Id = nextPath1Id
+	self.nextPath2Id = nextPath2Id
     
     def getStartPosition(self):
 	return self.startPosition
@@ -91,6 +93,26 @@ class Path:
     def getRotate(self):
 	pass
 
+class PathWay:
+    paths = []
+    index = 0;
+    
+    def __init__(self):
+	pass
+    
+    def addPath(self, pathId):
+	self.paths.append(pathId)
+	
+    def nextPath(self):
+	if (self.index < self.length()):
+	    return self.paths[self.index]
+	else:
+	    return Path(Point(0,0), Point(0,0), 0)
+    
+    def length(self):
+	return self.paths.count()
+    
+    
 class Palette:
     beginPosition = Point()
     actualPosition = Point()
@@ -119,16 +141,34 @@ class Place:
 	self.position = position
 	self.pathId = pathId
 
+    def getPosition(self):
+	return self.position
+      
+    def getPath(self):
+	return self.pathId
+
 class Station:
     def __init__(self, serviceTime, position, pathId):
 	self.serviceTime = serviceTime
 	self.position = position
 	self.pathId = pathId
+    
+    def getPosition(self):
+	return self.position
+    
+    def getPath(self):
+	return self.pathId
 
 class DockStation:
     def __init__(self, position, pathId):
 	self.position = position
 	self.pathId = pathId
+    
+    def getPosition(self):
+	return self.position
+    
+    def getPath(self):
+	return self.pathId
 
 class StationBuffor:
     position1 = Point()
