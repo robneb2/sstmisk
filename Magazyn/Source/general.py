@@ -94,23 +94,42 @@ class Path:
 class Palette:
     beginPosition = Point()
     actualPosition = Point()
-  
+    
     def __init__(self, beginPosition):
 	self.actualPosition = self.beginPosition = beginPosition
 	self.action = PaletteAction.isReady
-	
-    def ChangePosition(self, position):
+    
+    def changePosition(self, position):
 	self.actualPosition = position
-  
+    
+    def getPosition(self):
+	return self.actualPosition
+    
     def setAction(self, action):
 	self.action = action
-	
+    
     def getAction(self):
 	return self.action
-      
+    
     def isReady(self):
 	return self.action == PaletteAction.isReady
-  
+
+class Place:
+    def __init__(self, position, pathId):
+	self.position = position
+	self.pathId = pathId
+
+class Station:
+    def __init__(self, serviceTime, position, pathId):
+	self.serviceTime = serviceTime
+	self.position = position
+	self.pathId = pathId
+
+class DockStation:
+    def __init__(self, position, pathId):
+	self.position = position
+	self.pathId = pathId
+
 class StationBuffor:
     position1 = Point()
     position2 = Point()

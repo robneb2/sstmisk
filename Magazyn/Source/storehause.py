@@ -1,7 +1,8 @@
 
 class Storehouse:
     def __init__(self, places, stations, dockStations, stationBuffors, paths):
-	self.palets = self.places = places
+	self.places = places
+	#self.palets = pozycje z places
 	self.stations = stations
 	self.dockStations = dockStations
 	self.stationBuffors = stationBuffors
